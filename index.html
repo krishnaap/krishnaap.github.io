@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmospheric Data Archive</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol/ol.css" type="text/css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            color: #fff;
+            background: #000;
+        }
+
+        #sidebar {
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(25, 25, 25, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            overflow: auto;
+            z-index: 1000;
+        }
+
+        #menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu-item, .submenu {
+            margin-bottom: 10px;
+        }
+
+        .menu-link, .submenu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .menu-link:hover, .submenu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        #content {
+            margin-left: 270px;
+            padding: 20px;
+            background: #000;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        #map {
+            height: 600px; /* Adjust as needed */
+        }
+
+        h1, p {
+            color: #ccc;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <ul id="menu">
+            <!-- Menu items as before -->
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Atmospheric Data Archive</h1>
+        <p>Welcome to the Atmospheric Data Archive. Here you can access a comprehensive collection of atmospheric data sourced from various global data providers. Browse through our categories to find data suited to your needs.</p>
+        <div id="map" class="map"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ol/ol.js"></script>
+    <script>
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.XYZ({
+                        url: 'https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/' +
+                             '{Layer}/default/{Time}/{TileMatrixSet}/{z}/{y}/{x}.jpeg',
+                        tileGrid: new ol.tilegrid.WMTS({
+                            origin: [-180, 90],
+                            resolutions: [
+                                0.5625,
+                                0.28125,
+                                0.140625,
+                                0.0703125,
+                                0.03515625,
+                                0.017578125,
+                                0.0087890625,
+                                0.00439453125,
+                                0.002197265625
+                            ],
+                            matrixIds: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+                            tileSize: 512
+                        }),
+                        layer: 'MODIS_Terra_CorrectedReflectance_TrueColor',
+                        tileMatrixSet: 'EPSG4326_250m',
+                        format: 'image/jpeg',
+                        time: '2023-10-04'
+                    })
+                })
+            ],
+            view: new ol.View({
+                projection: 'EPSG:4326',
+                center: [0, 0],
+                zoom: 2
+            })
+        });
+    </script>
+</body>
+</html>
+
