@@ -1,128 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atmospheric Data Archive</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol/ol.css" type="text/css">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            height: 100%;
-            color: #fff;
-            background: #000;
-        }
-
-        #sidebar {
-            width: 250px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            background: rgba(25, 25, 25, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            overflow: auto;
-            z-index: 1000;
-        }
-
-        #menu {
-            list-style: none;
-            padding: 0;
-        }
-
-        .menu-item, .submenu {
-            margin-bottom: 10px;
-        }
-
-        .menu-link, .submenu a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 10px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .menu-link:hover, .submenu a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
-        }
-
-        #content {
-            margin-left: 270px;
-            padding: 20px;
-            background: #000;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        #map {
-            height: 600px; /* Adjust as needed */
-        }
-
-        h1, p {
-            color: #ccc;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Atmospheric Data Archive Wizard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="sidebar">
-        <ul id="menu">
-            <!-- Menu items as before -->
-        </ul>
-    </div>
-    <div id="content">
-        <h1>Atmospheric Data Archive</h1>
-        <p>Welcome to the Atmospheric Data Archive. Here you can access a comprehensive collection of atmospheric data sourced from various global data providers. Browse through our categories to find data suited to your needs.</p>
-        <div id="map" class="map"></div>
-    </div>
+  <nav class="sidebar">
+    <h2>Dataset Categories</h2>
+    <button class="side-btn" data-target="satellite">Satellite Data</button>
+    <button class="side-btn" data-target="model">Model Data</button>
+    <button class="side-btn" data-target="upperair">Upper Air Obs</button>
+    <button class="side-btn" data-target="other">Other Datasets</button>
+    <button class="side-btn" data-target="viz">Visualization Apps</button>
+  </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/ol/ol.js"></script>
-    <script>
-        var map = new ol.Map({
-            target: 'map',
-            layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.XYZ({
-                        url: 'https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/' +
-                             '{Layer}/default/{Time}/{TileMatrixSet}/{z}/{y}/{x}.jpeg',
-                        tileGrid: new ol.tilegrid.WMTS({
-                            origin: [-180, 90],
-                            resolutions: [
-                                0.5625,
-                                0.28125,
-                                0.140625,
-                                0.0703125,
-                                0.03515625,
-                                0.017578125,
-                                0.0087890625,
-                                0.00439453125,
-                                0.002197265625
-                            ],
-                            matrixIds: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-                            tileSize: 512
-                        }),
-                        layer: 'MODIS_Terra_CorrectedReflectance_TrueColor',
-                        tileMatrixSet: 'EPSG4326_250m',
-                        format: 'image/jpeg',
-                        time: '2023-10-04'
-                    })
-                })
-            ],
-            view: new ol.View({
-                projection: 'EPSG:4326',
-                center: [0, 0],
-                zoom: 2
-            })
-        });
-    </script>
+  <main class="content">
+    <h1>Atmospheric Data Archive</h1>
+
+    <div class="content-area">
+      <div class="intro visible">
+        Use this interactive wizard to find the most suitable atmospheric data archives, model datasets, satellite sources, upper-air observations, and visualization tools for your research or project.
+      </div>
+
+      <section id="satellite">
+        <h2>Satellite Data</h2>
+        <p>Major space agency sources providing various atmospheric datasets:</p>
+        <ul>
+          <li><a href="https://mosdac.gov.in/" target="_blank">ISRO - MOSDAC</a></li>
+          <li><a href="https://earth.esa.int/web/guest/data-access/browse-data-products" target="_blank">ESA - Earth Online</a></li>
+          <li><a href="https://earthdata.nasa.gov" target="_blank">NASA - EarthData</a></li>
+        </ul>
+      </section>
+
+      <section id="model">
+        <h2>Model Data</h2>
+        <p>Climate models, reanalysis, and forecast data:</p>
+        <ul>
+          <li><a href="https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/global-forcast-system-gfs" target="_blank">NCEP GFS Data</a></li>
+          <li><a href="https://climatedataguide.ucar.edu/climate-data" target="_blank">Climate Data Guide</a></li>
+          <li><a href="https://esgf-node.llnl.gov/projects/cmip5/" target="_blank">CMIP5 Data</a></li>
+          <li><a href="https://www.earthsystemgrid.org/" target="_blank">NCAR Climate Data Gateway</a></li>
+          <li><a href="http://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/" target="_blank">ECMWF Era-Interim</a></li>
+          <li><a href="https://cds.climate.copernicus.eu/#!/search?text=ERA5&type=dataset" target="_blank">ECMWF Era-5</a></li>
+          <li><a href="https://psl.noaa.gov/data/gridded/data.ncep.reanalysis.html" target="_blank">NCEP/NCAR Reanalysis 1</a></li>
+          <li><a href="https://psl.noaa.gov/data/gridded/data.ncep.reanalysis2.html" target="_blank">NCEP-DOE Reanalysis 2</a></li>
+          <li><a href="https://rds.ncmrwf.gov.in/datasets" target="_blank">NCMRWF - Reanalysis (IMDAA & NGFS)</a></li>
+        </ul>
+      </section>
+
+      <section id="upperair">
+        <h2>Upper Air Observation (Radiosonde)</h2>
+        <p>Radiosonde and global upper air sounding data:</p>
+        <ul>
+          <li><a href="http://weather.uwyo.edu/upperair/sounding.html" target="_blank">University of Wyoming</a></li>
+          <li><a href="https://rda.ucar.edu/datasets/ds351.0/" target="_blank">NCEP ADP Global Upper Air Data</a></li>
+          <li><a href="https://www.ncdc.noaa.gov/data-access/weather-balloon/integrated-global-radiosonde-archive" target="_blank">IGRA</a></li>
+        </ul>
+      </section>
+
+      <section id="other">
+        <h2>Other Datasets</h2>
+        <p>Additional archives and AWS data:</p>
+        <ul>
+          <li><a href="http://www.archive.arm.gov/discovery/#v/results/s/fcat::cloud" target="_blank">ARM</a></li>
+          <li><a href="http://aws.imd.gov.in:8091/" target="_blank">AWS - IMD</a></li>
+        </ul>
+      </section>
+
+      <section id="viz">
+        <h2>Data Visualization Applications</h2>
+        <p>Web tools for real-time visualization:</p>
+        <ul>
+          <li><a href="https://worldview.earthdata.nasa.gov" target="_blank">NASA WorldView</a></li>
+          <li><a href="https://live.mosdac.gov.in" target="_blank">MOSDAC Live</a></li>
+          <li><a href="https://www.weatheronline.in/weather/maps/current" target="_blank">WeatherOnline</a></li>
+          <li><a href="https://hwp-viz.gsd.esrl.noaa.gov/smoke/index.html" target="_blank">NOAA HRRR-Smoke</a></li>
+          <li><a href="http://www.cpc.noaa.gov/products/JAWF_Monitoring/India/index.shtml" target="_blank">NOAA CPC</a></li>
+          <li><a href="https://www.ventusky.com/" target="_blank">Ventusky</a></li>
+          <li><a href="http://earth.nullschool.net/" target="_blank">Null School</a></li>
+          <li><a href="https://view.eumetsat.int/productviewer?v=default" target="_blank">Eumetview</a></li>
+          <li><a href="http://hydro.imd.gov.in/hydrometweb/" target="_blank">CRIS</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- Floating thumbnail preview box -->
+  <div id="preview-box">
+    <img id="preview-img" src="" alt="Preview">
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
 
