@@ -2,27 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Atmospheric Data Archive Wizard</title>
+
+  <!-- ✅ SEO Meta Tags -->
+  <title>Atmospheric Data Archive Wizard | Meteorological Datasets & Tools</title>
+  <meta name="description" content="Find and access satellite data, weather models, climate datasets, reanalysis archives, radiosonde soundings, and online visualization tools for meteorological research.">
+  <meta name="keywords" content="Atmospheric data, satellite data, weather models, reanalysis, climate data, radiosonde, meteorology, data visualization, MOSDAC, ERA5, GFS, ARM, IGRA">
+  <meta name="author" content="Krishna Kumar A P">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ Open Graph for social sharing -->
+  <meta property="og:title" content="Atmospheric Data Archive Wizard">
+  <meta property="og:description" content="One-stop portal for global satellite data, weather models, climate archives, reanalysis datasets, and visualization tools for atmospheric science.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krishnaap.github.io/">
+  <meta property="og:image" content="https://krishnaap.github.io/preview-image.png">
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atmospheric Data Archive Wizard">
+  <meta name="twitter:description" content="Explore global meteorological datasets and online visualization tools.">
+  <meta name="twitter:image" content="https://krishnaap.github.io/preview-image.png">
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- ✅ CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Sidebar Navigation -->
   <nav class="sidebar">
     <h2>Dataset Categories</h2>
-    <button class="side-btn" data-target="satellite">Satellite Data</button>
-    <button class="side-btn" data-target="model">Model Data</button>
-    <button class="side-btn" data-target="upperair">Upper Air Obs</button>
-    <button class="side-btn" data-target="other">Other Datasets</button>
-    <button class="side-btn" data-target="viz">Visualization Apps</button>
+    <button class="side-btn" data-target="satellite" title="Explore satellite archives">Satellite Data</button>
+    <button class="side-btn" data-target="model" title="Weather models, climate datasets, reanalysis archives">Model Data</button>
+    <button class="side-btn" data-target="upperair" title="Radiosonde upper-air observations">Upper Air Obs</button>
+    <button class="side-btn" data-target="other" title="Additional measurement networks">Other Datasets</button>
+    <button class="side-btn" data-target="viz" title="Online visualization applications">Visualization Apps</button>
   </nav>
 
+  <!-- Main Content Area -->
   <main class="content">
     <h1>Atmospheric Data Archive</h1>
 
     <div class="content-area">
       <div class="intro visible">
-        Use this interactive wizard to find the most suitable atmospheric data archives, model datasets, satellite sources, upper-air observations, and visualization tools for your research or project.
+        Use this interactive wizard to find the most suitable satellite archives, weather model datasets, reanalysis products, radiosonde data, and online visualization tools for your research.
       </div>
 
+      <!-- Satellite Data Section -->
       <section id="satellite">
         <h2>Satellite Data</h2>
         <p>Major space agency sources providing various atmospheric datasets:</p>
@@ -33,22 +61,39 @@
         </ul>
       </section>
 
+      <!-- Model Data Section -->
       <section id="model">
         <h2>Model Data</h2>
-        <p>Climate models, reanalysis, and forecast data:</p>
-        <ul>
-          <li><a href="https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/global-forcast-system-gfs" target="_blank">NCEP GFS Data</a></li>
-          <li><a href="https://climatedataguide.ucar.edu/climate-data" target="_blank">Climate Data Guide</a></li>
-          <li><a href="https://esgf-node.llnl.gov/projects/cmip5/" target="_blank">CMIP5 Data</a></li>
-          <li><a href="https://www.earthsystemgrid.org/" target="_blank">NCAR Climate Data Gateway</a></li>
-          <li><a href="http://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/" target="_blank">ECMWF Era-Interim</a></li>
-          <li><a href="https://cds.climate.copernicus.eu/#!/search?text=ERA5&type=dataset" target="_blank">ECMWF Era-5</a></li>
-          <li><a href="https://psl.noaa.gov/data/gridded/data.ncep.reanalysis.html" target="_blank">NCEP/NCAR Reanalysis 1</a></li>
-          <li><a href="https://psl.noaa.gov/data/gridded/data.ncep.reanalysis2.html" target="_blank">NCEP-DOE Reanalysis 2</a></li>
-          <li><a href="https://rds.ncmrwf.gov.in/datasets" target="_blank">NCMRWF - Reanalysis (IMDAA & NGFS)</a></li>
-        </ul>
+        <p>Weather models, climate datasets, and reanalysis products:</p>
+        <div class="model-columns">
+          <div class="column">
+            <h3>Weather Model Data</h3>
+            <ul>
+              <li><a href="https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/global-forcast-system-gfs" target="_blank">NCEP GFS Data</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>Climate Dataset</h3>
+            <ul>
+              <li><a href="https://climatedataguide.ucar.edu/climate-data" target="_blank">Climate Data Guide</a></li>
+              <li><a href="https://esgf-node.llnl.gov/projects/cmip5/" target="_blank">CMIP5 Data</a></li>
+              <li><a href="https://www.earthsystemgrid.org/" target="_blank">NCAR Climate Data Gateway</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>Reanalysis Data</h3>
+            <ul>
+              <li><a href="http://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/" target="_blank">ECMWF Era-Interim</a></li>
+              <li><a href="https://cds.climate.copernicus.eu/#!/search?text=ERA5&type=dataset" target="_blank">ECMWF Era-5</a></li>
+              <li><a href="https://psl.noaa.gov/data/gridded/data.ncep.reanalysis.html" target="_blank">NCEP/NCAR Reanalysis 1</a></li>
+              <li><a href="https://psl.noaa.gov/data/gridded/data.ncep.reanalysis2.html" target="_blank">NCEP-DOE Reanalysis 2</a></li>
+              <li><a href="https://rds.ncmrwf.gov.in/datasets" target="_blank">NCMRWF - Reanalysis (IMDAA & NGFS)</a></li>
+            </ul>
+          </div>
+        </div>
       </section>
 
+      <!-- Upper Air Section -->
       <section id="upperair">
         <h2>Upper Air Observation (Radiosonde)</h2>
         <p>Radiosonde and global upper air sounding data:</p>
@@ -59,18 +104,20 @@
         </ul>
       </section>
 
+      <!-- Other Datasets Section -->
       <section id="other">
         <h2>Other Datasets</h2>
-        <p>Additional archives and AWS data:</p>
+        <p>Additional measurement networks and weather station data:</p>
         <ul>
-          <li><a href="http://www.archive.arm.gov/discovery/#v/results/s/fcat::cloud" target="_blank">ARM</a></li>
+          <li><a href="http://www.archive.arm.gov/discovery/#v/results/s/fcat::cloud" target="_blank">Atmospheric Radiation Measurement (ARM)</a></li>
           <li><a href="http://aws.imd.gov.in:8091/" target="_blank">AWS - IMD</a></li>
         </ul>
       </section>
 
+      <!-- Visualization Apps Section -->
       <section id="viz">
         <h2>Data Visualization Applications</h2>
-        <p>Web tools for real-time visualization:</p>
+        <p>Online tools for real-time weather and atmospheric data visualization:</p>
         <ul>
           <li><a href="https://worldview.earthdata.nasa.gov" target="_blank">NASA WorldView</a></li>
           <li><a href="https://live.mosdac.gov.in" target="_blank">MOSDAC Live</a></li>
@@ -86,11 +133,12 @@
     </div>
   </main>
 
-  <!-- Floating thumbnail preview box -->
+  <!-- Hover Preview Box -->
   <div id="preview-box">
     <img id="preview-img" src="" alt="Preview">
   </div>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>

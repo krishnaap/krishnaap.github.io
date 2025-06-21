@@ -3,11 +3,12 @@ body {
   display: flex;
   background: #000;
   color: #fff;
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 .sidebar {
-  background: #111;
+  background: rgba(0, 0, 0, 0.9);
   padding: 1rem;
   width: 200px;
   box-shadow: 2px 0 10px #4169E1;
@@ -44,6 +45,7 @@ body {
 
 h1 {
   text-align: center;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .content-area > * {
@@ -79,6 +81,15 @@ ul {
 
 li {
   margin: 0.5rem 0;
+}
+
+.model-columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.model-columns .column {
+  flex: 1;
 }
 
 #preview-box {

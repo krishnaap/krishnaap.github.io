@@ -14,13 +14,13 @@ buttons.forEach(btn => {
   });
 });
 
-// Live thumbnail preview
+// Link preview box
 const previewBox = document.getElementById("preview-box");
 const previewImg = document.getElementById("preview-img");
 const links = document.querySelectorAll("section a");
 
 links.forEach(link => {
-  link.addEventListener("mouseover", e => {
+  link.addEventListener("mouseover", () => {
     const url = link.href;
     previewImg.src = `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=600`;
     previewBox.style.display = "block";
@@ -31,7 +31,7 @@ links.forEach(link => {
     previewBox.style.left = (e.pageX + 20) + "px";
   });
 
-  link.addEventListener("mouseout", e => {
+  link.addEventListener("mouseout", () => {
     previewBox.style.display = "none";
   });
 });
