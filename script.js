@@ -1,38 +1,43 @@
-const buttons = document.querySelectorAll(".side-btn");
-const contentArea = document.querySelector(".content-area");
-const intro = document.querySelector(".intro");
-const sections = document.querySelectorAll("section");
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".side-btn");
+  const sections = document.querySelectorAll(".content-area section, .intro");
 
-buttons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const targetId = btn.dataset.target;
-    const target = document.getElementById(targetId);
-
-    intro.classList.remove("visible");
-    sections.forEach(sec => sec.classList.remove("visible"));
-    target.classList.add("visible");
-  });
-});
-
-// Link preview box
-const previewBox = document.getElementById("preview-box");
-const previewImg = document.getElementById("preview-img");
-const links = document.querySelectorAll("section a");
-
-links.forEach(link => {
-  link.addEventListener("mouseover", () => {
-    const url = link.href;
-    previewImg.src = `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=600`;
-    previewBox.style.display = "block";
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      sections.forEach(section => {
+        section.classList.remove("visible");
+      });
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.classList.add("visible");
+      }
+    });
   });
 
-  link.addEventListener("mousemove", e => {
-    previewBox.style.top = (e.pageY + 20) + "px";
-    previewBox.style.left = (e.pageX + 20) + "px";
-  });
+  // Hover preview logic
+  const previewBox = document.getElementById("preview-box");
+  const previewImg = document.getElementById("preview-img");
 
-  link.addEventListener("mouseout", () => {
-    previewBox.style.display = "none";
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("mouseover", (e) => {
+      const url = new URL(link.href);
+      const hostname = url.hostname.replace("www.", "");
+      previewImg.src = `https://image.thum.io/get/width/600/crop/400/noanimate/${url.href}`;
+      previewBox.style.display = "block";
+      previewBox.style.left = `${e.pageX + 10}px`;
+      previewBox.style.top = `${e.pageY + 10}px`;
+    });
+
+    link.addEventListener("mousemove", (e) => {
+      previewBox.style.left = `${e.pageX + 10}px`;
+      previewBox.style.top = `${e.pageY + 10}px`;
+    });
+
+    link.addEventListener("mouseout", () => {
+      previewBox.style.display = "none";
+      previewImg.src = "";
+    });
   });
 });
 
