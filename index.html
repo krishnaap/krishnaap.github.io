@@ -2,13 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Atmospheric Data Archive Wizard | Meteorological Datasets & Tools</title>
-  <meta name="description" content="Find and access satellite data, weather models, climate datasets, reanalysis archives, radiosonde soundings, and online visualization tools for meteorological research.">
+  <title>Atmospheric Data Navigator | Meteorological Datasets & Tools</title>
+  <meta name="description" content="Navigate and access satellite data, weather models, climate datasets, reanalysis archives, radiosonde soundings, and online visualization tools for meteorological research.">
   <meta name="keywords" content="Atmospheric data, satellite data, weather models, reanalysis, climate data, radiosonde, meteorology, data visualization, MOSDAC, ERA5, GFS, ARM, IGRA">
   <meta name="author" content="Krishnakumar AP">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta property="og:title" content="Atmospheric Data Navigator">
+  <meta property="og:description" content="Global portal for navigating satellite data, climate models, reanalysis archives, and meteorological visualizations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krishnaap.github.io/">
+  <meta property="og:image" content="https://krishnaap.github.io/preview-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atmospheric Data Navigator">
+  <meta name="twitter:description" content="Explore global meteorological datasets and online visualization tools.">
+  <meta name="twitter:image" content="https://krishnaap.github.io/preview-image.png">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <!-- Font and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
   <!-- Sidebar -->
@@ -19,16 +37,16 @@
     <button class="side-btn" data-target="upperair">Upper Air Obs</button>
     <button class="side-btn" data-target="other">Other Datasets</button>
     <button class="side-btn" data-target="viz">Visualization Apps</button>
-    <hr>
-    <button class="side-btn" data-target="about">About Me</button>
+    <button class="side-btn" onclick="window.open('https://krishnaap.github.io/worldviz/', '_blank')">🌍 Globe Visualizer</button>
+$1
   </nav>
 
   <!-- Main content -->
   <main class="content">
-    <h1>Atmospheric Data Archive</h1>
+    <h1>Atmospheric Data Navigator</h1>
     <div class="content-area">
       <div class="intro visible">
-        Use this interactive wizard to find the most suitable satellite archives, weather model datasets, reanalysis products, radiosonde data, and online visualization tools for your research.
+        Use this interactive navigator to find the most suitable satellite archives, weather model datasets, reanalysis products, radiosonde data, and online visualization tools for your meteorological research.
       </div>
 
       <section id="satellite">
@@ -104,8 +122,8 @@
 
       <section id="about">
         <h2>About Me</h2>
-        <p><strong>Krishnakumar AP</strong> is a researcher in Meteorology with expertise in atmospheric aerosols especially in dust aerosols, cloud interactions, and climate data analysis. With a background in weather forecasting and satellite remote sensing, he has worked with different institutions.</p>
-        <p>His passion lies in making atmospheric data more accessible, visual, and research-friendly through tools like this data archive wizard. This site is a step toward democratizing meteorological data access for students, scientists, and enthusiasts worldwide.</p>
+        <p><strong>Krishnakumar AP</strong> is a researcher in Meteorology with expertise in atmospheric aerosols, cloud interactions, and climate data analysis. With a background in weather forecasting and satellite remote sensing, he has worked with institutions like the National Centre for Medium Range Weather Forecasting (NCMRWF) and has conducted graduate research in the United States focusing on environmental data applications.</p>
+        <p>His passion lies in making atmospheric data more accessible, visual, and research-friendly through tools like this data navigator. This site is a step toward democratizing meteorological data access for students, scientists, and enthusiasts worldwide.</p>
         <p><em>Contact or collaborate via GitHub: <a href="https://github.com/krishnaap" target="_blank">github.com/krishnaap</a></em></p>
       </section>
     </div>
@@ -114,6 +132,7 @@
   <div id="preview-box">
     <img id="preview-img" src="" alt="Preview">
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
