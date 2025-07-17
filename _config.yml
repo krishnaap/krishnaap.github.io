@@ -1,0 +1,6 @@
+remote_theme: chrisbobbe/jekyll-theme-prologue
+plugins:
+  - jekyll-remote-theme
+collections:
+  - sections
+
