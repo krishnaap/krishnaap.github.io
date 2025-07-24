@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.VANTA) {
+    VANTA.CLOUDS({ el: "#vanta-bg" });
+  }
   const buttons = document.querySelectorAll(".side-btn");
   const sections = document.querySelectorAll(".content-area section, .intro");
 
