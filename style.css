@@ -156,6 +156,12 @@ h1, h2, h3, h4, h5, h6, p, li, .side-btn {
   padding: 1rem;
 }
 
+/* Ensure links inside main content remain white even when visited */
+.content-area a,
+.content-area a:visited {
+  color: #fff;
+}
+
 .content-area .intro,
 .content-area section {
   display: none;
@@ -174,8 +180,9 @@ section#about {
   line-height: 1.6;
 }
 
-section#about a {
-  color: #67e8f9;
+section#about a,
+section#about a:visited {
+  color: #fff;
   text-decoration: none;
 }
 
