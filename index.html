@@ -29,6 +29,8 @@
   </script>
 </head>
 <body>
+  <div id="vanta-bg"></div>
+  <button id="menu-toggle" class="menu-toggle">&#9776;</button>
   <!-- Sidebar -->
   <nav class="sidebar">
     <h2>Dataset Categories</h2>
@@ -51,9 +53,9 @@
       <section id="satellite">
         <h2>Satellite Data</h2>
         <ul>
-          <li><a href="https://mosdac.gov.in/" target="_blank">ISRO - MOSDAC</a></li>
-          <li><a href="https://earth.esa.int/web/guest/data-access/browse-data-products" target="_blank">ESA - Earth Online</a></li>
           <li><a href="https://earthdata.nasa.gov" target="_blank">NASA - EarthData</a></li>
+          <li><a href="https://earth.esa.int/web/guest/data-access/browse-data-products" target="_blank">ESA - Earth Online</a></li>
+          <li><a href="https://mosdac.gov.in/" target="_blank">ISRO - MOSDAC</a></li>
         </ul>
       </section>
 
@@ -132,6 +134,8 @@
     <img id="preview-img" src="" alt="Preview">
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="vanta.clouds.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
