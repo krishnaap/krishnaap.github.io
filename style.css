@@ -66,12 +66,53 @@ h1, h2, h3, h4, h5, h6, p, li, .side-btn {
   z-index: -1;
 }
 
+/* Make main title stand out */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  margin-top: 0;
+}
+
+/* Curved bezel around all text elements */
+h1, h2, h3, h4, h5, h6, p, li, .side-btn {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Toggle button for mobile sidebar */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  z-index: 1100;
+  font-size: 1.5rem;
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 15.625rem;
   height: 100vh;
+
   background-color: rgba(17, 17, 17, 0.8);
 
   backdrop-filter: blur(4px);
@@ -173,14 +214,26 @@ section#about a:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
+  .menu-toggle {
     display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    width: 70%;
+    max-width: 16rem;
+    height: 100vh;
+    transform: translateX(-100%);
+    background-color: rgba(17, 17, 17, 0.4);
+    backdrop-filter: blur(4px);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
     background-color: rgba(17, 17, 17, 0.8);
 
     backdrop-filter: blur(4px);
+
   }
 
   .content {
