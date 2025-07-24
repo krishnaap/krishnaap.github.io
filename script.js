@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Initialize the cloud animation
     VANTA.CLOUDS({
-      el: "#vanta-background",       // your background element
+      el: "vanta.clouds.js",       // your background element
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
