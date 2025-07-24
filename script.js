@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.VANTA) {
+    VANTA.CLOUDS({ el: "#vanta-bg" });
+  }
+
+  const menuBtn = document.getElementById("menu-toggle");
+  const sidebar = document.querySelector(".sidebar");
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+  }
   const buttons = document.querySelectorAll(".side-btn");
   const sections = document.querySelectorAll(".content-area section, .intro");
 
@@ -12,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetSection) {
         targetSection.classList.add("visible");
       }
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove("open");
+      }
     });
   });
 
@@ -23,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("mouseover", (e) => {
       const url = new URL(link.href);
       const hostname = url.hostname.replace("www.", "");
-      previewImg.src = `https://image.thum.io/get/width/600/crop/400/noanimate/${url.href}`;
+      previewImg.src = `https://image.thum.io/get/width/600/crop/600/noanimate/${url.href}`;
       previewBox.style.display = "block";
       previewBox.style.left = `${e.pageX + 10}px`;
       previewBox.style.top = `${e.pageY + 10}px`;
@@ -40,4 +54,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
+// Ensure THREE.js and Vanta.Clouds are loaded before this runs
+(function() {
+  // Wait until DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof VANTA === 'undefined' || !VANTA.CLOUDS) {
+      console.error('VANTA.CLOUDS not found');
+      return;
+    }
+    // Initialize the cloud animation
+    VANTA.CLOUDS({
+      el: "vanta.clouds.js",       // your background element
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      // you can add custom options like color, backgroundColor, etc.
+    });
+  });
+})();
