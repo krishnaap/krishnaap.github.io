@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.VANTA) {
     VANTA.CLOUDS({ el: "#vanta-bg" });
   }
+
+  const menuBtn = document.getElementById("menu-toggle");
+  const sidebar = document.querySelector(".sidebar");
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+  }
   const buttons = document.querySelectorAll(".side-btn");
   const sections = document.querySelectorAll(".content-area section, .intro");
 
@@ -14,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
         targetSection.classList.add("visible");
+      }
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove("open");
       }
     });
   });
