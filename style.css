@@ -5,6 +5,23 @@ body {
   background-color: #000;
   color: #fff;
 }
+/* Make main title stand out */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  margin-top: 0;
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
 /* Make main title stand out */
 h1 {
