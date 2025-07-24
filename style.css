@@ -5,6 +5,66 @@ body {
   background-color: #000;
   color: #fff;
 }
+/* Make main title stand out */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  margin-top: 0;
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Make main title stand out */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  margin-top: 0;
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Make main title stand out */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  margin-top: 0;
+}
+
+/* Curved bezel around all text elements */
+h1, h2, h3, h4, h5, h6, p, li, .side-btn {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
 /* Make main title stand out */
 h1 {
@@ -52,7 +112,9 @@ h1, h2, h3, h4, h5, h6, p, li, .side-btn {
   left: 0;
   width: 15.625rem;
   height: 100vh;
-  background-color: rgba(17, 17, 17, 0.4);
+
+  background-color: rgba(17, 17, 17, 0.8);
+
   backdrop-filter: blur(4px);
   padding: 1.25rem;
   box-sizing: border-box;
@@ -168,6 +230,10 @@ section#about a:hover {
 
   .sidebar.open {
     transform: translateX(0);
+    background-color: rgba(17, 17, 17, 0.8);
+
+    backdrop-filter: blur(4px);
+
   }
 
   .content {
