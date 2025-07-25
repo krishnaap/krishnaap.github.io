@@ -29,6 +29,9 @@
   </script>
 </head>
 <body>
+  <div id="vanta-bg"></div>
+  <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+
   <!-- Sidebar -->
   <nav class="sidebar">
     <h2>Dataset Categories</h2>
@@ -36,10 +39,10 @@
     <button class="side-btn" data-target="model">Model Data</button>
     <button class="side-btn" data-target="upperair">Upper Air Obs</button>
     <button class="side-btn" data-target="other">Other Datasets</button>
+    <button class="side-btn" data-target="cryosphere">Cryosphere</button>
     <button class="side-btn" data-target="viz">Visualization Apps</button>
     <button class="side-btn" onclick="window.open('https://krishnaap.github.io/worldviz/', '_blank')">🌍 Globe Visualizer</button>
   </nav>
-
   <!-- Main content -->
   <main class="content">
     <h1>Atmospheric Data Navigator</h1>
@@ -51,9 +54,9 @@
       <section id="satellite">
         <h2>Satellite Data</h2>
         <ul>
-          <li><a href="https://mosdac.gov.in/" target="_blank">ISRO - MOSDAC</a></li>
-          <li><a href="https://earth.esa.int/web/guest/data-access/browse-data-products" target="_blank">ESA - Earth Online</a></li>
           <li><a href="https://earthdata.nasa.gov" target="_blank">NASA - EarthData</a></li>
+          <li><a href="https://earth.esa.int/web/guest/data-access/browse-data-products" target="_blank">ESA - Earth Online</a></li>
+          <li><a href="https://mosdac.gov.in/" target="_blank">ISRO - MOSDAC</a></li>
         </ul>
       </section>
 
@@ -77,8 +80,8 @@
           <div>
             <h3>Reanalysis Data</h3>
             <ul>
-              <li><a href="http://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/" target="_blank">ECMWF Era-Interim</a></li>
-              <li><a href="https://cds.climate.copernicus.eu/#!/search?text=ERA5&type=dataset" target="_blank">ECMWF Era-5</a></li>
+              <li><a href="https://cds.climate.copernicus.eu/datasets?q=era5&kw=Variable+domain%3A+Atmosphere+%28surface%29&kw=Variable+domain%3A+Atmosphere+%28upper+air%29&kw=Variable+domain%3A+Atmosphere+%28upper+level%29&kw=Variable+domain%3A+Ocean+%28physics%29" target="_blank">ECMWF ERA5</a></li>
+              <li><a href="https://www.ecmwf.int/en/forecasts/datasets/browse-reanalysis-datasets" target="_blank">Other ECMWF reanalysis datasets</a></li>
               <li><a href="https://psl.noaa.gov/data/gridded/data.ncep.reanalysis.html" target="_blank">NCEP/NCAR Reanalysis 1</a></li>
               <li><a href="https://psl.noaa.gov/data/gridded/data.ncep.reanalysis2.html" target="_blank">NCEP-DOE Reanalysis 2</a></li>
               <li><a href="https://rds.ncmrwf.gov.in/datasets" target="_blank">NCMRWF - Reanalysis (IMDAA & NGFS)</a></li>
@@ -90,7 +93,7 @@
       <section id="upperair">
         <h2>Upper Air Observation (Radiosonde)</h2>
         <ul>
-          <li><a href="http://weather.uwyo.edu/upperair/sounding.html" target="_blank">University of Wyoming</a></li>
+          <li><a href="https://weather.uwyo.edu/upperair/sounding.shtml" target="_blank">University of Wyoming</a></li>
           <li><a href="https://rda.ucar.edu/datasets/ds351.0/" target="_blank">NCEP ADP Global</a></li>
           <li><a href="https://www.ncdc.noaa.gov/data-access/weather-balloon/integrated-global-radiosonde-archive" target="_blank">Integrated Global Radiosonde Archive (IGRA)</a></li>
         </ul>
@@ -101,6 +104,13 @@
         <ul>
           <li><a href="http://www.archive.arm.gov/discovery/#v/results/s/fcat::cloud" target="_blank">ARM Cloud Data</a></li>
           <li><a href="http://aws.imd.gov.in:8091/" target="_blank">IMD Automatic Weather Station (AWS)</a></li>
+        </ul>
+      </section>
+
+      <section id="cryosphere">
+        <h2>Cryosphere</h2>
+        <ul>
+          <li><a href="https://nsidc.org/data/explore-data" target="_blank">NSIDC - Explore Data</a></li>
         </ul>
       </section>
 
@@ -126,11 +136,19 @@
         <p><em>Contact or collaborate via GitHub: <a href="https://github.com/krishnaap" target="_blank">github.com/krishnaap</a></em></p>
       </section>
     </div>
+    </div>
   </main>
 
   <div id="preview-box">
     <img id="preview-img" src="" alt="Preview">
+    
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="vanta.clouds.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+
 
   <script src="script.js"></script>
 </body>
